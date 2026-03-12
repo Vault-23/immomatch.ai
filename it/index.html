@@ -1840,9 +1840,11 @@
         <a href="#kontakt">Contatto</a>
       </div>
       <div class="copy">© 2026 immoMatch.ai, Zurigo, Svizzera</div>
-      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-12 21:30 UTC</div>
+      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-12 23:35 CET</div>
     </div>
-  </footer><script>
+  </footer>
+
+  <script>
     // Scroll-based nav
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -1897,6 +1899,39 @@
       });
     });
 
+
+
+    // Early Access form
+    const eaForm = document.getElementById('eaForm');
+    const eaSuccess = document.getElementById('eaSuccess');
+    const eaContainer = document.getElementById('eaFormContainer');
+    if (eaForm) {
+      eaForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = eaForm.querySelector('.btn-ea');
+        const origHTML = btn.innerHTML;
+        btn.textContent = 'Iscrizione in corso...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(eaForm.action, {
+            method: 'POST',
+            body: new FormData(eaForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            eaContainer.style.display = 'none';
+            eaSuccess.style.display = 'block';
+          } else {
+            btn.textContent = 'Errore, riprova';
+            btn.disabled = false;
+          }
+        } catch (err) {
+          btn.textContent = 'Errore, riprova';
+          btn.disabled = false;
+        }
+      });
+    }
+
     // Contact form submission
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
@@ -1925,8 +1960,6 @@
         }
       });
     }
-
-    // Language switcher
   </script>
 
 </body>
