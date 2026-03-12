@@ -335,6 +335,68 @@
     footer .copy { font-size: 0.8rem; }
 
     
+
+    /* ─── LANGUAGE SWITCHER ─── */
+    .lang-switch {
+      position: relative;
+      margin-left: 0.5rem;
+    }
+
+    .lang-switch-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.35rem 0.6rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--slate);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-switch-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .lang-switch-btn svg { width: 10px; height: 10px; transition: transform 0.2s; }
+    .lang-switch.open .lang-switch-btn svg { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(10, 15, 26, 0.1);
+      min-width: 130px;
+      z-index: 200;
+      overflow: hidden;
+    }
+
+    .lang-switch.open .lang-dropdown { display: block; }
+
+    .lang-dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      color: var(--slate);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .lang-dropdown a:hover { background: var(--cream); color: var(--ink); }
+    .lang-dropdown a.active { color: var(--accent); font-weight: 600; }
+
+    .lang-flag { font-size: 1.1rem; }
+
     /* MOBILE MENU */
     .menu-toggle { display: none; }
 
@@ -434,6 +496,34 @@
       footer .inner { flex-direction: column; gap: 1.5rem; text-align: center; }
       footer .links { flex-wrap: wrap; justify-content: center; }
     }
+
+    .mobile-lang-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .mobile-lang-link {
+      display: inline-flex !important;
+      padding: 0.5rem 0.85rem !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 6px !important;
+      font-size: 0.85rem !important;
+      border-bottom: 1px solid var(--border) !important;
+      transition: all 0.2s;
+    }
+
+    .mobile-lang-link:hover {
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+    }
+
+    @media (max-width: 768px) {
+      .lang-switch { display: none; }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -464,6 +554,15 @@
         <li><a href="/it/#kontakt">Contatto</a></li>
         <li><a href="/it/#bewertung" class="nav-cta">Iscriviti ora</a></li>
       </ul>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-switch-btn" aria-label="Language">IT <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg></button>
+        <div class="lang-dropdown">
+          <a href="/ueber-uns.html"><span class="lang-flag">🇨🇭</span> Deutsch</a>
+          <a href="/en/about.html"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="/fr/a-propos.html"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="/it/chi-siamo.html" class="active"><span class="lang-flag">🇮🇹</span> Italiano</a>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Apri menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -560,8 +659,8 @@
     <a href="/it/#kontakt">Contatto</a>
     <a href="/it/chi-siamo.html">Chi siamo</a>
     <a href="/it/#bewertung" class="mobile-cta">Valutazione gratuita</a>
+    <div class="mobile-lang-row"><a href="/ueber-uns.html" class="mobile-lang-link">🇨🇭 DE</a><a href="/en/about.html" class="mobile-lang-link">🇬🇧 EN</a><a href="/fr/a-propos.html" class="mobile-lang-link">🇫🇷 FR</a></div>
   </div>
-
   <footer>
     <div class="inner">
       <a href="/" class="logo">immo<span>Match</span><span class="ai-part">.aı<svg class="swiss-dot" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#FF0000"/><rect x="8" y="3.5" width="4" height="13" rx="1" fill="#fff"/><rect x="3.5" y="8" width="13" height="4" rx="1" fill="#fff"/></svg></span></a>
