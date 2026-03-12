@@ -1120,6 +1120,49 @@
     .lang-bar a:hover { color: var(--ink); background: var(--cream); }
     .lang-bar a.active { color: var(--ink); background: var(--cream); }
 
+
+    @media (max-width: 1024px) {
+      .hero .inner { grid-template-columns: 1fr; gap: 3rem; }
+      .problem-grid { grid-template-columns: 1fr 1fr; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+      .stats .inner { grid-template-columns: 1fr 1fr; }
+      .contact .inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--ink);
+      }
+
+      .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+      .hero h1 { font-size: 2.4rem; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .problem-grid,
+      .steps { grid-template-columns: 1fr; }
+
+      .trust-bar .inner { gap: 1.5rem; }
+
+      footer .inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      footer .links { flex-wrap: wrap; justify-content: center; }
+    }
+
     @media (max-width: 768px) {
       .lang-bar { display: none; }
     }

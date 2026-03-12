@@ -200,6 +200,52 @@
     footer a:hover { color: var(--paper); }
     footer .links { display: flex; gap: 2rem; font-size: 0.85rem; }
     footer .copy { font-size: 0.8rem; }
+
+    /* ─── LANGUAGE SWITCHER ─── */
+    .lang-bar {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      margin-left: 8px;
+      padding-left: 12px;
+      border-left: 1px solid var(--border);
+    }
+
+    .lang-bar a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 0.25rem 0.45rem;
+      border-radius: 4px;
+      transition: all 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-bar a:hover { color: var(--ink); background: var(--cream); }
+    .lang-bar a.active { color: var(--ink); background: var(--cream); }
+
+    @media (max-width: 768px) {
+      .lang-bar { display: none; }
+      nav ul { display: none; }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--ink);
+      }
+
+      .values-grid { grid-template-columns: 1fr; }
+      footer .inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      footer .links { flex-wrap: wrap; justify-content: center; }
+    }
   </style>
 </head>
 <body>
