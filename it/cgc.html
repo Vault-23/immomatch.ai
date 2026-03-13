@@ -28,11 +28,6 @@
   <link rel="alternate" hreflang="it" href="https://www.immomatch.ai/it/cgc.html">
   <link rel="alternate" hreflang="x-default" href="https://www.immomatch.ai/agb.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="alternate" hreflang="de" href="https://www.immomatch.ai/agb.html">
-  <link rel="alternate" hreflang="en" href="https://www.immomatch.ai/en/terms.html">
-  <link rel="alternate" hreflang="fr" href="https://www.immomatch.ai/fr/cgv.html">
-  <link rel="alternate" hreflang="it" href="https://www.immomatch.ai/it/cgc.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.immomatch.ai/agb.html">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
   <style>
@@ -222,6 +217,99 @@
 
     .lang-bar a:hover { color: var(--ink); background: var(--cream); }
     .lang-bar a.active { color: var(--ink); background: var(--cream); }
+  
+    /* MOBILE MENU */
+    .menu-toggle { display: none; }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 15, 26, 0.5);
+      z-index: 99;
+    }
+
+    .mobile-overlay.open { display: block; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background: var(--paper);
+      z-index: 101;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -4px 0 30px rgba(10, 15, 26, 0.1);
+    }
+
+    .mobile-menu.open {
+      display: block;
+      transform: translateX(0);
+    }
+
+    .mobile-menu .close-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      margin-left: auto;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.85rem 0;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu a:hover { color: var(--accent); }
+
+    .mobile-menu .mobile-cta {
+      display: block;
+      margin-top: 1.5rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.85rem;
+      border-radius: 100px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-bottom: none;
+    }
+
+    .mobile-menu .mobile-cta:hover { color: var(--paper); }
+
+    .mobile-lang-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-lang-link {
+      font-size: 0.85rem;
+      border-bottom: none !important;
+      padding: 0.4rem 0 !important;
+    }
+
 
     @media (max-width: 768px) {
       .lang-bar { display: none; }
@@ -244,6 +332,7 @@
       footer .inner { flex-direction: column; gap: 1.5rem; text-align: center; }
       footer .links { flex-wrap: wrap; justify-content: center; }
     }
+
   </style>
 </head>
 <body>
@@ -365,7 +454,7 @@
         <a href="/it/#contatto">Contatto</a>
       </div>
       <div class="copy">© 2026 immoMatch.ai, Zurigo, Svizzera</div>
-      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-12 23:35 CET</div>
+      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-13 00:15 CET</div>
     </div>
   </footer>
 
