@@ -347,7 +347,7 @@
         <li><a href="/#bewertung" class="nav-cta">Kostenlose Bewertung</a></li>
       </ul>
       <div class="lang-bar"><a href="/agb.html" class="active">DE</a><a href="/en/terms.html">EN</a><a href="/fr/cgv.html">FR</a><a href="/it/cgc.html">IT</a></div>
-      <button class="menu-toggle" aria-label="Menü öffnen">
+      <button class="menu-toggle" onclick="openMenu()" aria-label="Menü öffnen">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
@@ -431,9 +431,9 @@
   </div>
 
   
-  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-overlay" id="mobileOverlay" onclick="closeMenu()"></div>
   <div class="mobile-menu" id="mobileMenu">
-    <button class="close-btn" id="mobileClose" aria-label="Menü schliessen">
+    <button class="close-btn" id="mobileClose" onclick="closeMenu()" aria-label="Menü schliessen">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <a href="/#agenten">KI-Agenten</a>
@@ -454,9 +454,22 @@
         <a href="/#kontakt">Kontakt</a>
       </div>
       <div class="copy">© 2026 immoMatch.ai, Zürich, Schweiz</div>
-      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-13 00:15 CET</div>
+      <div style="font-size:0.65rem;opacity:0.35;margin-top:0.75rem;">Build 2026-03-13 01:10 CET</div>
     </div>
   </footer>
 
+  <script>
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.getElementById('mobileOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('mobileOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
